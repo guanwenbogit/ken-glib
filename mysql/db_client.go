@@ -113,6 +113,7 @@ func config(user string, pwd string, addr string, dbName string) *mysql.Config {
 	res.Passwd = pwd
 	res.Addr = addr
 	res.DBName = dbName
+	res.AllowNativePasswords = true
 	return res
 }
 

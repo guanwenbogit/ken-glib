@@ -9,15 +9,16 @@ import (
 func newClient(t *testing.T) *Client {
 	c := NewClient()
 	err := c.AppendMaster("root", "1qaz", "127.0.0.1:3306", "ken_user")
-	err = c.AppendMaster("root", "1qaz", "127.0.0.1:3306", "ryu_user")
 	if err != nil {
 		t.Logf("Append Master err=%v", err)
 	}
+	err = c.AppendMaster("root", "1qaz", "127.0.0.1:3306", "ryu_user")
+
 	err = c.AppendSlave("root", "1qaz", "127.0.0.1:3306", "ken_user")
-	err = c.AppendSlave("root", "1qaz", "127.0.0.1:3306", "ryu_user")
 	if err != nil {
 		t.Logf("Append Slave err=%v", err)
 	}
+	err = c.AppendSlave("root", "1qaz", "127.0.0.1:3306", "ryu_user")
 	return c
 }
 
